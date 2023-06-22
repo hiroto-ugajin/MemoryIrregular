@@ -227,6 +227,25 @@ class MainActivity : AppCompatActivity() {
                             secondCardIndex = 0
                             thirdCardIndex = 0
                         }
+                    } else if(11 < firstCardIndex && firstCardIndex <= 15
+                        && 11 < secondCardIndex && secondCardIndex <= 15
+                        && !(11 < thirdCardIndex && thirdCardIndex <= 15)) {
+                        mediaPlayer2.start()
+                        // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
+                        CoroutineScope(Dispatchers.Main).launch {
+                            delay(1000)
+                            firstCard?.setImageResource(R.drawable.background_image)
+                            secondCard?.setImageResource(R.drawable.background_image)
+                            thirdCard?.setImageResource(R.drawable.background_image)
+                            // カードの情報をリセット
+                            firstCard = null
+                            secondCard = null
+                            thirdCard = null
+                            firstCardIndex = 0
+                            secondCardIndex = 0
+                            thirdCardIndex = 0
+                        }
+
                     }
 
 
