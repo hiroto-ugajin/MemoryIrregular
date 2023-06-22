@@ -109,34 +109,25 @@ class MainActivity : AppCompatActivity() {
                     secondCard = imageButton
                     secondCardIndex = drawableArray.indexOfFirst { it == element }
 
-//                    if (firstCardIndex <= 5 && secondCardIndex <= 5) {
+//                    val isMatch = firstCardIndex / 2 == secondCardIndex / 2
+
+
+                    if (firstCardIndex <= 5 && secondCardIndex <= 5) {
                         val isMatch = firstCardIndex / 2 == secondCardIndex / 2
-
-                        if (isMatch) {
-//                             正解音を再生
-                            mediaPlayer1.start()
-
+                        if (isMatch) {   mediaPlayer1.start()
                             // 2枚のカードを非表示にする
                             firstCard?.visibility = View.INVISIBLE
                             secondCard?.visibility = View.INVISIBLE
-
                             // カードの情報をリセット
                             firstCard = null
                             secondCard = null
                             firstCardIndex = 0
                             secondCardIndex = 0
-
                         } else {
-                            // ブザー音を再生
-                            // TODO: ブザー音の再生処理を追加してください
                             mediaPlayer2.start()
-
                             // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
                             CoroutineScope(Dispatchers.Main).launch {
-
                                 delay(1000)
-
-
                                 firstCard?.setImageResource(R.drawable.background_image)
                                 secondCard?.setImageResource(R.drawable.background_image)
                                 // カードの情報をリセット
@@ -146,60 +137,160 @@ class MainActivity : AppCompatActivity() {
                                 secondCardIndex = 0
                             }
                         }
+                    } else if (5 < firstCardIndex && firstCardIndex <= 8 && 5 < secondCardIndex && secondCardIndex <= 8 ) {
+
+                            if (thirdCard == null) {
+                                // 3枚目のカード
+                                thirdCard = imageButton
+                                thirdCardIndex = drawableArray.indexOfFirst { it == element }
+
+                                if (5 < thirdCardIndex && thirdCardIndex <= 8) {
+                                    mediaPlayer1.start()
+                                    firstCard?.visibility = View.INVISIBLE
+                                    secondCard?.visibility = View.INVISIBLE
+                                    thirdCard?.visibility = View.INVISIBLE
+                                    // カードの情報をリセット
+                                    firstCard = null
+                                    secondCard = null
+                                    thirdCard = null
+                                    firstCardIndex = 0
+                                    secondCardIndex = 0
+                                    thirdCardIndex = 0
+                                } else {
+                                    mediaPlayer2.start()
+                                    // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
+                                    CoroutineScope(Dispatchers.Main).launch {
+                                        delay(1000)
+                                        firstCard?.setImageResource(R.drawable.background_image)
+                                        secondCard?.setImageResource(R.drawable.background_image)
+                                        thirdCard?.setImageResource(R.drawable.background_image)
+                                        // カードの情報をリセット
+                                        firstCard = null
+                                        secondCard = null
+                                        thirdCard = null
+                                        firstCardIndex = 0
+                                        secondCardIndex = 0
+                                        thirdCardIndex = 0
+                                    }
+                                }
+                            }
+                        } else if (8 < firstCardIndex && firstCardIndex <= 11 && 8 < secondCardIndex && secondCardIndex <= 11) {
+
+                            if (thirdCard == null) {
+                            // 3枚目のカード
+                            thirdCard = imageButton
+                            thirdCardIndex = drawableArray.indexOfFirst { it == element }
+
+                            if (8 < thirdCardIndex && thirdCardIndex <= 11) {
+                                mediaPlayer1.start()
+                                firstCard?.visibility = View.INVISIBLE
+                                secondCard?.visibility = View.INVISIBLE
+                                thirdCard?.visibility = View.INVISIBLE
+                                // カードの情報をリセット
+                                firstCard = null
+                                secondCard = null
+                                thirdCard = null
+                                firstCardIndex = 0
+                                secondCardIndex = 0
+                                thirdCardIndex = 0
+                            } else {
+                                mediaPlayer2.start()
+                                // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
+                                CoroutineScope(Dispatchers.Main).launch {
+                                    delay(1000)
+                                    firstCard?.setImageResource(R.drawable.background_image)
+                                    secondCard?.setImageResource(R.drawable.background_image)
+                                    thirdCard?.setImageResource(R.drawable.background_image)
+                                    // カードの情報をリセット
+                                    firstCard = null
+                                    secondCard = null
+                                    thirdCard = null
+                                    firstCardIndex = 0
+                                    secondCardIndex = 0
+                                    thirdCardIndex = 0
+                                }
+                            }
+                        }
+                    } else if (11 < firstCardIndex && firstCardIndex <= 15 && 11 < secondCardIndex && secondCardIndex <= 15) {
+                        if (thirdCard == null) {
+                            // 3枚目のカード
+                            thirdCard = imageButton
+                            thirdCardIndex = drawableArray.indexOfFirst { it == element }
+                            if (11 < thirdCardIndex && thirdCardIndex <= 15) {
+                                if (fourthCard == null) {
+                                    // 3枚目のカード
+                                    fourthCard = imageButton
+                                    fourthCardIndex = drawableArray.indexOfFirst { it == element }
+                                    if (11 < fourthCardIndex && fourthCardIndex <= 15) {
+                                        mediaPlayer1.start()
+                                        firstCard?.visibility = View.INVISIBLE
+                                        secondCard?.visibility = View.INVISIBLE
+                                        thirdCard?.visibility = View.INVISIBLE
+                                        fourthCard?.visibility = View.INVISIBLE
+                                        // カードの情報をリセット
+                                        firstCard = null
+                                        secondCard = null
+                                        thirdCard = null
+                                        fourthCard = null
+                                        firstCardIndex = 0
+                                        secondCardIndex = 0
+                                        thirdCardIndex = 0
+                                        fourthCardIndex = 0
+                                    } else {
+                                        mediaPlayer2.start()
+                                        // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
+                                        CoroutineScope(Dispatchers.Main).launch {
+                                            delay(1000)
+                                            firstCard?.setImageResource(R.drawable.background_image)
+                                            secondCard?.setImageResource(R.drawable.background_image)
+                                            thirdCard?.setImageResource(R.drawable.background_image)
+                                            fourthCard?.setImageResource(R.drawable.background_image)
+                                            // カードの情報をリセット
+                                            firstCard = null
+                                            secondCard = null
+                                            thirdCard = null
+                                            fourthCard = null
+                                            firstCardIndex = 0
+                                            secondCardIndex = 0
+                                            thirdCardIndex = 0
+                                            fourthCardIndex = 0
+                                        }
+                                    }
+                                }
+                            } else {
+                                mediaPlayer2.start()
+                                // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
+                                CoroutineScope(Dispatchers.Main).launch {
+                                    delay(1000)
+                                    firstCard?.setImageResource(R.drawable.background_image)
+                                    secondCard?.setImageResource(R.drawable.background_image)
+                                    thirdCard?.setImageResource(R.drawable.background_image)
+                                    // カードの情報をリセット
+                                    firstCard = null
+                                    secondCard = null
+                                    thirdCard = null
+                                    firstCardIndex = 0
+                                    secondCardIndex = 0
+                                    thirdCardIndex = 0
+                                }
+                            }
+                        }
+                    } else {
+                        mediaPlayer2.start()
+                        // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
+                        CoroutineScope(Dispatchers.Main).launch {
+                            delay(1000)
+                            firstCard?.setImageResource(R.drawable.background_image)
+                            secondCard?.setImageResource(R.drawable.background_image)
+                            // カードの情報をリセット
+                            firstCard = null
+                            secondCard = null
+                            firstCardIndex = 0
+                            secondCardIndex = 0
+                        }
                     }
-
-//                    } else if (thirdCard == null) {
-//                        thirdCard = imageButton
-//                        thirdCardIndex = drawableArray.indexOfFirst { it == element }
-//
-//                        if (firstCardIndex <= 11 && secondCardIndex <= 11 && thirdCardIndex <= 11) {
-//                            val isMatch =
-//                                firstCardIndex / 3 == secondCardIndex / 3 && firstCardIndex / 3 == thirdCardIndex / 3
-//
-//                            if (isMatch) {
-//                                // 正解音を再生
-//                                // TODO: 正解音の再生処理を追加してください
-//                                mediaPlayer1.start()
-//
-//                                // 3枚のカードを非表示にする
-//                                firstCard?.visibility = View.INVISIBLE
-//                                secondCard?.visibility = View.INVISIBLE
-//                                thirdCard?.visibility = View.INVISIBLE
-//                                // カードの情報をリセット
-//                                firstCard = null
-//                                secondCard = null
-//                                thirdCard = null
-//                                firstCardIndex = 0
-//                                secondCardIndex = 0
-//                                thirdCardIndex = 0
-//
-//                            } else {
-//                                // ブザー音を再生
-//                                // TODO: ブザー音の再生処理を追加してください
-//                                mediaPlayer2.start()
-//
-//                                // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
-//                                CoroutineScope(Dispatchers.Main).launch {
-//
-//                                    delay(1000)
-//
-//
-//                                    firstCard?.setImageResource(R.drawable.background_image)
-//                                    secondCard?.setImageResource(R.drawable.background_image)
-//                                    thirdCard?.setImageResource(R.drawable.background_image)
-//                                    // カードの情報をリセット
-//                                    firstCard = null
-//                                    secondCard = null
-//                                    thirdCard = null
-//                                    firstCardIndex = 0
-//                                    secondCardIndex = 0
-//                                    thirdCardIndex = 0
-//                                }
-//                            }
-//                        }
-//                    }
-
                 }
             }
         }
     }
+}
