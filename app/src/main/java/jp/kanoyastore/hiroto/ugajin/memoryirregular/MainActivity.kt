@@ -1,5 +1,6 @@
 package jp.kanoyastore.hiroto.ugajin.memoryirregular
 
+import android.annotation.SuppressLint
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
@@ -57,6 +58,7 @@ class MainActivity : AppCompatActivity() {
         R.drawable.b15
     )
 
+    @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -99,11 +101,23 @@ class MainActivity : AppCompatActivity() {
                             imageButton.setImageResource(shuffledDrawableArray[i])
                             val element = shuffledDrawableArray[i]
 
+
+//                            // ボタンを無効化
+//                            imageButton.isEnabled = false
+//
+//                            CoroutineScope(Dispatchers.Main).launch {
+//                                delay(1000)
+//                                imageButton.isEnabled = true
+//                            }
+
+
                                             // 最初にめくったカードと次にめくったカードの画像が同じかどうかを判定
                 if (firstCard == null) {
                     // 最初のカード
                     firstCard = imageButton
                     firstCardIndex = drawableArray.indexOfFirst { it == element }
+
+
 
                 } else if (secondCard == null) {
                     // 2枚目のカード
@@ -125,7 +139,7 @@ class MainActivity : AppCompatActivity() {
                         }
                         else {
                             mediaPlayer2.start()
-                            // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
+                            // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
                             CoroutineScope(Dispatchers.Main).launch {
                                 delay(1000)
                                 firstCard?.setImageResource(R.drawable.background_image)
@@ -145,7 +159,7 @@ class MainActivity : AppCompatActivity() {
                                 && 11 < secondCardIndex && secondCardIndex <= 15)
                     )) {
                         mediaPlayer2.start()
-                        // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
+                        // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
                         CoroutineScope(Dispatchers.Main).launch {
                             delay(1000)
                             firstCard?.setImageResource(R.drawable.background_image)
@@ -289,7 +303,20 @@ class MainActivity : AppCompatActivity() {
                                         }
                     }
                 }
+
+
+
+
+
+
+
                         }
+
+
+
+
+
+
         }
     }
 }
