@@ -154,6 +154,11 @@ class MainActivity : AppCompatActivity() {
 
                         imageButton.setOnClickListener {
 
+                            mediaPlayer1.stop()
+                            mediaPlayer1 = MediaPlayer.create(this, R.raw.nice)
+                            mediaPlayer2.stop()
+                            mediaPlayer2 = MediaPlayer.create(this, R.raw.boo)
+
                             // カードの画像を表示
                             imageButton.setImageResource(shuffledDrawableArray[i])
                             val element = shuffledDrawableArray[i]
@@ -189,14 +194,16 @@ class MainActivity : AppCompatActivity() {
                                     if (isMatch) {
                                         mediaPlayer1.start()
                                         // 2枚のカードを非表示にする
-                                        firstCard?.visibility = View.INVISIBLE
-                                        secondCard?.visibility = View.INVISIBLE
-                                        // カードの情報をリセット
-                                        firstCard = null
-                                        secondCard = null
-                                        firstCardIndex = 0
-                                        secondCardIndex = 0
-
+                                        CoroutineScope(Dispatchers.Main).launch {
+                                            delay(1000)
+                                            firstCard?.visibility = View.INVISIBLE
+                                            secondCard?.visibility = View.INVISIBLE
+                                            // カードの情報をリセット
+                                            firstCard = null
+                                            secondCard = null
+                                            firstCardIndex = 0
+                                            secondCardIndex = 0
+                                        }
                                     } else {
                                         mediaPlayer2.start()
                                         // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
@@ -247,16 +254,19 @@ class MainActivity : AppCompatActivity() {
                                     && 5 < thirdCardIndex && thirdCardIndex <= 8
                                 ) {
                                     mediaPlayer1.start()
-                                    firstCard?.visibility = View.INVISIBLE
-                                    secondCard?.visibility = View.INVISIBLE
-                                    thirdCard?.visibility = View.INVISIBLE
-                                    // カードの情報をリセット
-                                    firstCard = null
-                                    secondCard = null
-                                    thirdCard = null
-                                    firstCardIndex = 0
-                                    secondCardIndex = 0
-                                    thirdCardIndex = 0
+                                    CoroutineScope(Dispatchers.Main).launch {
+                                        delay(1000)
+                                        firstCard?.visibility = View.INVISIBLE
+                                        secondCard?.visibility = View.INVISIBLE
+                                        thirdCard?.visibility = View.INVISIBLE
+                                        // カードの情報をリセット
+                                        firstCard = null
+                                        secondCard = null
+                                        thirdCard = null
+                                        firstCardIndex = 0
+                                        secondCardIndex = 0
+                                        thirdCardIndex = 0
+                                    }
                                 } else if (5 < firstCardIndex && firstCardIndex <= 8
                                     && 5 < secondCardIndex && secondCardIndex <= 8
                                     && !(5 < thirdCardIndex && thirdCardIndex <= 8)
@@ -284,17 +294,20 @@ class MainActivity : AppCompatActivity() {
                                     && 8 < thirdCardIndex && thirdCardIndex <= 11
                                 ) {
                                     mediaPlayer1.start()
-                                    firstCard?.visibility = View.INVISIBLE
-                                    secondCard?.visibility = View.INVISIBLE
-                                    thirdCard?.visibility = View.INVISIBLE
-                                    // カードの情報をリセット
+                                    CoroutineScope(Dispatchers.Main).launch {
+                                        delay(1000)
+                                        firstCard?.visibility = View.INVISIBLE
+                                        secondCard?.visibility = View.INVISIBLE
+                                        thirdCard?.visibility = View.INVISIBLE
+                                        // カードの情報をリセット
 
-                                    firstCard = null
-                                    secondCard = null
-                                    thirdCard = null
-                                    firstCardIndex = 0
-                                    secondCardIndex = 0
-                                    thirdCardIndex = 0
+                                        firstCard = null
+                                        secondCard = null
+                                        thirdCard = null
+                                        firstCardIndex = 0
+                                        secondCardIndex = 0
+                                        thirdCardIndex = 0
+                                    }
                                 } else if (8 < firstCardIndex && firstCardIndex <= 11
                                     && 8 < secondCardIndex && secondCardIndex <= 11
                                     && !(8 < thirdCardIndex && thirdCardIndex <= 11)
@@ -349,19 +362,22 @@ class MainActivity : AppCompatActivity() {
                                 if (11 < fourthCardIndex && fourthCardIndex <= 15) {
 
                                     mediaPlayer1.start()
-                                    firstCard?.visibility = View.INVISIBLE
-                                    secondCard?.visibility = View.INVISIBLE
-                                    thirdCard?.visibility = View.INVISIBLE
-                                    fourthCard?.visibility = View.INVISIBLE
-                                    // カードの情報をリセット
-                                    firstCard = null
-                                    secondCard = null
-                                    thirdCard = null
-                                    fourthCard = null
-                                    firstCardIndex = 0
-                                    secondCardIndex = 0
-                                    thirdCardIndex = 0
-                                    fourthCardIndex = 0
+                                    CoroutineScope(Dispatchers.Main).launch {
+                                        delay(1000)
+                                        firstCard?.visibility = View.INVISIBLE
+                                        secondCard?.visibility = View.INVISIBLE
+                                        thirdCard?.visibility = View.INVISIBLE
+                                        fourthCard?.visibility = View.INVISIBLE
+                                        // カードの情報をリセット
+                                        firstCard = null
+                                        secondCard = null
+                                        thirdCard = null
+                                        fourthCard = null
+                                        firstCardIndex = 0
+                                        secondCardIndex = 0
+                                        thirdCardIndex = 0
+                                        fourthCardIndex = 0
+                                    }
                                 } else {
                                     mediaPlayer2.start()
                                     // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
