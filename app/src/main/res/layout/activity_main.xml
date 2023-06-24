@@ -193,7 +193,7 @@
 
     <Button
         android:layout_below="@id/linear4"
-        android:id="@+id/startButton"
+        android:id="@+id/reStartButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
 

@@ -9,6 +9,7 @@ import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.View
 import android.view.animation.AlphaAnimation
 import android.widget.ImageButton
@@ -30,7 +31,6 @@ class MainActivity : AppCompatActivity() {
     private var secondCard: ImageButton? = null
     private var thirdCard: ImageButton? = null
     private var fourthCard: ImageButton? = null
-
 
     private var firstCardIndex = -1
     private var secondCardIndex = -1
@@ -58,40 +58,9 @@ class MainActivity : AppCompatActivity() {
         R.drawable.b15
     )
 
-    val imageButtonIds = arrayOf(
-        R.id.button0,
-        R.id.button1,
-        R.id.button2,
-        R.id.button3,
-        R.id.button4,
-        R.id.button5,
-        R.id.button6,
-        R.id.button7,
-        R.id.button8,
-        R.id.button9,
-        R.id.button10,
-        R.id.button11,
-        R.id.button12,
-        R.id.button13,
-        R.id.button14,
-        R.id.button15
-    )
-
-    val imageButtons: MutableList<ImageButton> = mutableListOf()
-
-//    private fun disableAllImageButtons() {
-//        for (imageButton in imageButtons) {
-//            imageButton.isEnabled = false
-//        }
-//    }
-
-//    private fun enableAllImageButtons() {
-//        for (i in 0 until 16) {
-//            val buttonId = resources.getIdentifier("button$i", "id", packageName)
-//            val imageButton = findViewById<ImageButton>(buttonId)
-//            imageButton.isEnabled = false
-//        }
-//    }
+    var shuffledDrawableArray = drawableArray.clone().apply {
+        shuffle()
+    }
 
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -103,9 +72,9 @@ class MainActivity : AppCompatActivity() {
         mediaPlayer1 = MediaPlayer.create(this, R.raw.nice)
         mediaPlayer2 = MediaPlayer.create(this, R.raw.boo)
 
-        val shuffledDrawableArray = drawableArray.clone().apply {
-            shuffle()
-        }
+//        val shuffledDrawableArray = drawableArray.clone().apply {
+//            shuffle()
+//        }
 
         fun enableAllImageButtons() {
             binding.button0.isEnabled = true
@@ -145,7 +114,33 @@ class MainActivity : AppCompatActivity() {
            binding.button15.isEnabled = false
        }
 
+        // reStartButtonをクリックしたときの処理
+        binding.reStartButton.setOnClickListener {
 
+            // ゲームの状態をリセットする
+            firstCard = null
+            secondCard = null
+            thirdCard = null
+            fourthCard = null
+
+            firstCardIndex = -1
+            secondCardIndex = -1
+            thirdCardIndex = -1
+            fourthCardIndex = -1
+
+           shuffledDrawableArray = drawableArray.clone().apply {
+               shuffle()
+           }
+
+            // カードの画像をリセットする
+            for (i in 0 until 16) {
+                val buttonId = resources.getIdentifier("button$i", "id", packageName)
+                val imageButton = findViewById<ImageButton>(buttonId)
+                imageButton.setImageResource(R.drawable.background_image)
+                imageButton.visibility = View.VISIBLE
+            }
+            enableAllImageButtons()
+        }
 
                 // カードがクリックされたときの処理
         for (i in 0 until 16) {
@@ -164,25 +159,16 @@ class MainActivity : AppCompatActivity() {
                             val element = shuffledDrawableArray[i]
                             disableAllImageButtons()
                             CoroutineScope(Dispatchers.Main).launch {
-                                delay(300)
+                                delay(400)
                                 enableAllImageButtons()
                                 imageButton.isEnabled = false
                             }
-                            // ボタンを無効化
-//                            imageButton.isEnabled = false
-
-//                            CoroutineScope(Dispatchers.Main).launch {
-//                                delay(700)
-//                                imageButton.isEnabled = true
-//                            }
-
 
                             // 最初にめくったカードと次にめくったカードの画像が同じかどうかを判定
                             if (firstCard == null) {
                                 // 最初のカード
                                 firstCard = imageButton
                                 firstCardIndex = drawableArray.indexOfFirst { it == element }
-
 
                             } else if (secondCard == null) {
                                 // 2枚目のカード
@@ -272,7 +258,7 @@ class MainActivity : AppCompatActivity() {
                                     && !(5 < thirdCardIndex && thirdCardIndex <= 8)
                                 ) {
                                     mediaPlayer2.start()
-                                    // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
+                                    // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
                                     CoroutineScope(Dispatchers.Main).launch {
                                         delay(1000)
                                         firstCard?.setImageResource(R.drawable.background_image)
@@ -313,7 +299,7 @@ class MainActivity : AppCompatActivity() {
                                     && !(8 < thirdCardIndex && thirdCardIndex <= 11)
                                 ) {
                                     mediaPlayer2.start()
-                                    // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
+                                    // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
                                     CoroutineScope(Dispatchers.Main).launch {
                                         delay(1000)
                                         firstCard?.setImageResource(R.drawable.background_image)
@@ -335,7 +321,7 @@ class MainActivity : AppCompatActivity() {
                                     && !(11 < thirdCardIndex && thirdCardIndex <= 15)
                                 ) {
                                     mediaPlayer2.start()
-                                    // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
+                                    // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
                                     CoroutineScope(Dispatchers.Main).launch {
                                         delay(1000)
                                         firstCard?.setImageResource(R.drawable.background_image)
@@ -355,7 +341,7 @@ class MainActivity : AppCompatActivity() {
                                 }
 
                             } else if (fourthCard == null) {
-                                // 3枚目のカード
+                                // 4枚目のカード
                                 fourthCard = imageButton
                                 fourthCardIndex = drawableArray.indexOfFirst { it == element }
 
@@ -380,7 +366,7 @@ class MainActivity : AppCompatActivity() {
                                     }
                                 } else {
                                     mediaPlayer2.start()
-                                    // Coroutineを使用して2秒後に背景画像に置き換える処理を実行
+                                    // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
                                     CoroutineScope(Dispatchers.Main).launch {
                                         delay(1000)
                                         firstCard?.setImageResource(R.drawable.background_image)
@@ -407,3 +393,5 @@ class MainActivity : AppCompatActivity() {
         }
     }
 }
+
+
