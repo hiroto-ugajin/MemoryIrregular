@@ -1,6 +1,7 @@
 package jp.kanoyastore.hiroto.ugajin.memoryirregular
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.graphics.Canvas
@@ -140,6 +141,11 @@ class MainActivity : AppCompatActivity() {
                 imageButton.visibility = View.VISIBLE
             }
             enableAllImageButtons()
+        }
+
+        binding.commentButton.setOnClickListener {
+            val intent = Intent(this, SecondActivity::class.java)
+            startActivity(intent)
         }
 
                 // カードがクリックされたときの処理
