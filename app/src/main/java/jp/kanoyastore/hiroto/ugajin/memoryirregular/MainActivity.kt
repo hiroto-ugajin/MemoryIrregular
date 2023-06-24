@@ -58,6 +58,41 @@ class MainActivity : AppCompatActivity() {
         R.drawable.b15
     )
 
+    val imageButtonIds = arrayOf(
+        R.id.button0,
+        R.id.button1,
+        R.id.button2,
+        R.id.button3,
+        R.id.button4,
+        R.id.button5,
+        R.id.button6,
+        R.id.button7,
+        R.id.button8,
+        R.id.button9,
+        R.id.button10,
+        R.id.button11,
+        R.id.button12,
+        R.id.button13,
+        R.id.button14,
+        R.id.button15
+    )
+
+    val imageButtons: MutableList<ImageButton> = mutableListOf()
+
+//    private fun disableAllImageButtons() {
+//        for (imageButton in imageButtons) {
+//            imageButton.isEnabled = false
+//        }
+//    }
+
+//    private fun enableAllImageButtons() {
+//        for (i in 0 until 16) {
+//            val buttonId = resources.getIdentifier("button$i", "id", packageName)
+//            val imageButton = findViewById<ImageButton>(buttonId)
+//            imageButton.isEnabled = false
+//        }
+//    }
+
     @SuppressLint("SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -72,24 +107,45 @@ class MainActivity : AppCompatActivity() {
             shuffle()
         }
 
-        val imageButtonIds = arrayOf(
-            R.id.button0,
-            R.id.button1,
-            R.id.button2,
-            R.id.button3,
-            R.id.button4,
-            R.id.button5,
-            R.id.button6,
-            R.id.button7,
-            R.id.button8,
-            R.id.button9,
-            R.id.button10,
-            R.id.button11,
-            R.id.button12,
-            R.id.button13,
-            R.id.button14,
-            R.id.button15
-        )
+        fun enableAllImageButtons() {
+            binding.button0.isEnabled = true
+            binding.button1.isEnabled = true
+            binding.button2.isEnabled = true
+            binding.button3.isEnabled = true
+            binding.button4.isEnabled = true
+            binding.button5.isEnabled = true
+            binding.button6.isEnabled = true
+            binding.button7.isEnabled = true
+            binding.button8.isEnabled = true
+            binding.button9.isEnabled = true
+            binding.button10.isEnabled = true
+            binding.button11.isEnabled = true
+            binding.button12.isEnabled = true
+            binding.button13.isEnabled = true
+            binding.button14.isEnabled = true
+            binding.button15.isEnabled = true
+    }
+
+       fun disableAllImageButtons() {
+           binding.button0.isEnabled = false
+           binding.button1.isEnabled = false
+           binding.button2.isEnabled = false
+           binding.button3.isEnabled = false
+           binding.button4.isEnabled = false
+           binding.button5.isEnabled = false
+           binding.button6.isEnabled = false
+           binding.button7.isEnabled = false
+           binding.button8.isEnabled = false
+           binding.button9.isEnabled = false
+           binding.button10.isEnabled = false
+           binding.button11.isEnabled = false
+           binding.button12.isEnabled = false
+           binding.button13.isEnabled = false
+           binding.button14.isEnabled = false
+           binding.button15.isEnabled = false
+       }
+
+
 
                 // カードがクリックされたときの処理
         for (i in 0 until 16) {
@@ -97,18 +153,18 @@ class MainActivity : AppCompatActivity() {
             val imageButton = findViewById<ImageButton>(buttonId)
 
                         imageButton.setOnClickListener {
+
                             // カードの画像を表示
                             imageButton.setImageResource(shuffledDrawableArray[i])
                             val element = shuffledDrawableArray[i]
 
+                            // ボタンを無効化
+                            imageButton.isEnabled = false
 
-//                            // ボタンを無効化
-//                            imageButton.isEnabled = false
-//
-//                            CoroutineScope(Dispatchers.Main).launch {
-//                                delay(1000)
-//                                imageButton.isEnabled = true
-//                            }
+                            CoroutineScope(Dispatchers.Main).launch {
+                                delay(1000)
+                                imageButton.isEnabled = true
+                            }
 
 
                                             // 最初にめくったカードと次にめくったカードの画像が同じかどうかを判定
@@ -136,6 +192,7 @@ class MainActivity : AppCompatActivity() {
                             secondCard = null
                             firstCardIndex = 0
                             secondCardIndex = 0
+
                         }
                         else {
                             mediaPlayer2.start()
@@ -303,20 +360,7 @@ class MainActivity : AppCompatActivity() {
                                         }
                     }
                 }
-
-
-
-
-
-
-
                         }
-
-
-
-
-
-
         }
     }
 }
