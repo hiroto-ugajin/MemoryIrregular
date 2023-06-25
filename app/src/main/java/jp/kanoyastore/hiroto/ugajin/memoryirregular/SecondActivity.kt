@@ -27,6 +27,7 @@ class SecondActivity : AppCompatActivity() {
 
 
         binding.subTitle.text = "matching cards group"
+        binding.subTitle.textSize = 20f
         binding.smallTitle1.text = "pairs from Trump cards"
         binding.smallTitle2.text = "3cards group:Karuta,female with red box,male with green box"
         binding.smallTitle3.text = "4cards group:Mahjomg,East,South,West and North"

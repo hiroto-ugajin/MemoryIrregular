@@ -151,7 +151,7 @@ class MainActivity : AppCompatActivity() {
                             val element = shuffledDrawableArray[i]
                             disableAllImageButtons()
                             CoroutineScope(Dispatchers.Main).launch {
-                                delay(400)
+                                delay(395)
                                 enableAllImageButtons()
                                 imageButton.isEnabled = false
                             }
@@ -173,7 +173,7 @@ class MainActivity : AppCompatActivity() {
                                         mediaPlayer1.start()
                                         // 2枚のカードを非表示にする
                                         CoroutineScope(Dispatchers.Main).launch {
-                                            delay(1000)
+                                            delay(400)
                                             firstCard?.visibility = View.INVISIBLE
                                             secondCard?.visibility = View.INVISIBLE
                                             // カードの情報をリセット
@@ -186,7 +186,7 @@ class MainActivity : AppCompatActivity() {
                                         mediaPlayer2.start()
                                         // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
                                         CoroutineScope(Dispatchers.Main).launch {
-                                            delay(1000)
+                                            delay(400)
                                             firstCard?.setImageResource(R.drawable.background_image)
                                             secondCard?.setImageResource(R.drawable.background_image)
                                             // カードの情報をリセット
@@ -210,7 +210,7 @@ class MainActivity : AppCompatActivity() {
                                     mediaPlayer2.start()
                                     // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
                                     CoroutineScope(Dispatchers.Main).launch {
-                                        delay(1000)
+                                        delay(400)
                                         firstCard?.setImageResource(R.drawable.background_image)
                                         secondCard?.setImageResource(R.drawable.background_image)
                                         // カードの情報をリセット
@@ -233,7 +233,7 @@ class MainActivity : AppCompatActivity() {
                                 ) {
                                     mediaPlayer1.start()
                                     CoroutineScope(Dispatchers.Main).launch {
-                                        delay(1000)
+                                        delay(400)
                                         firstCard?.visibility = View.INVISIBLE
                                         secondCard?.visibility = View.INVISIBLE
                                         thirdCard?.visibility = View.INVISIBLE
@@ -252,7 +252,7 @@ class MainActivity : AppCompatActivity() {
                                     mediaPlayer2.start()
                                     // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
                                     CoroutineScope(Dispatchers.Main).launch {
-                                        delay(1000)
+                                        delay(400)
                                         firstCard?.setImageResource(R.drawable.background_image)
                                         secondCard?.setImageResource(R.drawable.background_image)
                                         thirdCard?.setImageResource(R.drawable.background_image)
@@ -273,7 +273,7 @@ class MainActivity : AppCompatActivity() {
                                 ) {
                                     mediaPlayer1.start()
                                     CoroutineScope(Dispatchers.Main).launch {
-                                        delay(1000)
+                                        delay(400)
                                         firstCard?.visibility = View.INVISIBLE
                                         secondCard?.visibility = View.INVISIBLE
                                         thirdCard?.visibility = View.INVISIBLE
@@ -293,7 +293,7 @@ class MainActivity : AppCompatActivity() {
                                     mediaPlayer2.start()
                                     // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
                                     CoroutineScope(Dispatchers.Main).launch {
-                                        delay(1000)
+                                        delay(400)
                                         firstCard?.setImageResource(R.drawable.background_image)
                                         secondCard?.setImageResource(R.drawable.background_image)
                                         thirdCard?.setImageResource(R.drawable.background_image)
@@ -315,7 +315,7 @@ class MainActivity : AppCompatActivity() {
                                     mediaPlayer2.start()
                                     // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
                                     CoroutineScope(Dispatchers.Main).launch {
-                                        delay(1000)
+                                        delay(400)
                                         firstCard?.setImageResource(R.drawable.background_image)
                                         secondCard?.setImageResource(R.drawable.background_image)
                                         thirdCard?.setImageResource(R.drawable.background_image)
@@ -341,7 +341,7 @@ class MainActivity : AppCompatActivity() {
 
                                     mediaPlayer1.start()
                                     CoroutineScope(Dispatchers.Main).launch {
-                                        delay(1000)
+                                        delay(400)
                                         firstCard?.visibility = View.INVISIBLE
                                         secondCard?.visibility = View.INVISIBLE
                                         thirdCard?.visibility = View.INVISIBLE
@@ -360,7 +360,7 @@ class MainActivity : AppCompatActivity() {
                                     mediaPlayer2.start()
                                     // Coroutineを使用して1秒後に背景画像に置き換える処理を実行
                                     CoroutineScope(Dispatchers.Main).launch {
-                                        delay(1000)
+                                        delay(400)
                                         firstCard?.setImageResource(R.drawable.background_image)
                                         secondCard?.setImageResource(R.drawable.background_image)
                                         thirdCard?.setImageResource(R.drawable.background_image)

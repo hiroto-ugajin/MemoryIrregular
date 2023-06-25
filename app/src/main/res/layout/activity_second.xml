@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     tools:context=".SecondActivity">
 
+
     <LinearLayout
         android:id="@+id/linear"
         android:layout_width="match_parent"
@@ -16,13 +17,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text=""/>
+
     <TextView
         android:id="@+id/smallTitle1"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:text=""/>
-
-
     <ImageView
         android:id="@+id/groupImage1"
         android:layout_width="match_parent"
@@ -37,7 +37,6 @@
         android:id="@+id/groupImage2"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
-
 
     <TextView
         android:id="@+id/smallTitle3"
