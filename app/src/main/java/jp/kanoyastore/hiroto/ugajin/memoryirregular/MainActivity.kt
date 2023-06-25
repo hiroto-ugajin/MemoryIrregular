@@ -2,26 +2,16 @@ package jp.kanoyastore.hiroto.ugajin.memoryirregular
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.graphics.Canvas
-import android.graphics.drawable.BitmapDrawable
 import android.media.MediaPlayer
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.util.Log
 import android.view.View
-import android.view.animation.AlphaAnimation
 import android.widget.ImageButton
-import androidx.core.content.ContextCompat
 import jp.kanoyastore.hiroto.ugajin.memoryirregular.databinding.ActivityMainBinding
-
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-
 private lateinit var mediaPlayer1: MediaPlayer
 private lateinit var mediaPlayer2: MediaPlayer
 
@@ -72,10 +62,6 @@ class MainActivity : AppCompatActivity() {
 
         mediaPlayer1 = MediaPlayer.create(this, R.raw.nice)
         mediaPlayer2 = MediaPlayer.create(this, R.raw.boo)
-
-//        val shuffledDrawableArray = drawableArray.clone().apply {
-//            shuffle()
-//        }
 
         fun enableAllImageButtons() {
             binding.button0.isEnabled = true
